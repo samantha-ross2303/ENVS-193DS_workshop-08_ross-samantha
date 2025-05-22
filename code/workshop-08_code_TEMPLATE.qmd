@@ -293,7 +293,10 @@ model7 <- lm(
 ## Model diagnostics
 
 ```{r model-diagnostics}
-# INSERT MODEL DIAGNOSTICS CODE HERE
+# display plots in a 2x2 grid
+par(mfrow = c(2, 2))
+plot(model1)
+plot(model)
 ```
 
 ## Model selection
