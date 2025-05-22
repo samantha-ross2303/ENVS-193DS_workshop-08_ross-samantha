@@ -218,7 +218,7 @@ ggplot(data = drought_exp_clean,
   # labelling axes and title
   labs(x = "Species",
        y = "Total mass (g)",
-       title = "species differ") +
+       title = "species differ in mean mass") +
   # getting rid of legend
   theme(legend.position = "none")
 ```
@@ -243,30 +243,51 @@ ggplot(data = drought_exp_clean,
 ```{r model-fitting}
 # model 0: null model
 model0 <- lm(
-  total_g ~ 1, # formula
+  total_g ~ 1, # formula (1 represents no predictors)
   data = drought_exp_clean # data frame
 )
 
 # model 1: all predictors
-# INSERT MODEL CODE HERE
+model1 <- lm(
+  total_g ~ sla + water_treatment + species_name, #formula
+  data = drought_exp_clean # data frame
+)
 
 # model 2: SLA and water treatment
-# INSERT MODEL CODE HERE
+model2 <- lm(
+  total_g ~ sla + water_treatment, # formula
+  data = drought_exp_clean # data frame
+)
 
 # model 3: SLA and species
-# INSERT MODEL CODE HERE
+model3 <- lm(
+  total_g ~ sla + species_name, 
+  data = drought_exp_clean 
+)
 
 # model 4: water treatment and species
-# INSERT MODEL CODE HERE
+model4 <-  lm(
+  total_g ~ water_treatment + species_name,
+  data = drought_exp_clean
+)
 
 # model 5: SLA
-# INSERT MODEL CODE HERE
+model5 <-  lm(
+  total_g ~ sla,
+  data = drought_exp_clean
+)
 
 # model 6: water treatment
-# INSERT MODEL CODE HERE
+model6 <-  lm(
+  total_g ~ water_treatment,
+  data = drought_exp_clean
+)
 
 # model 7: species
-# INSERT MODEL CODE HERE
+model7 <- lm(
+  total_g ~ species_name,
+  data = drought_exp_clean
+)
 ```
 
 ## Model diagnostics
